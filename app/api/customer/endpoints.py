@@ -14,7 +14,7 @@ def create_customer(customer: CustomerCreate, db: Session = Depends(get_db)):
     return customer_service.create_customer(customer=customer, db=db)
 
 
-@router.post("/list/", response_model=List[CustomerResponse])
+@router.get("/list/", response_model=List[CustomerResponse])
 def list_customer(db: Session = Depends(get_db)):
     """List all customer"""
     customers = customer_service.list_customer(db)
